@@ -15,4 +15,21 @@ router.get("/login", (req, res) => {
   res.send("<h1>Login Page</h1>");
 });
 
+router.get("/edit", (req,res) => {
+  res.send("<h1>Edit Page</h1>");
+})
+
+router.post("/edit", (req, res) => {
+  const newusername = req.body.username;
+  const id = req.body.id;
+  try{
+    User.findById(id,( updatedUser)=> {
+      updatedUser.username = newusername;
+      updatedUser.save();
+    })
+  }
+  catch{}
+});
+
+
 module.exports = router;

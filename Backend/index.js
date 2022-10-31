@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const { MONGOURL } = require("./keys");
 
+
 const PORT = 4000;
 
 require('./models/user')
@@ -31,5 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Surver is successfully running on port: ", PORT);
+  console.log("Server is successfully running on port: ", PORT);
 });
+
+
