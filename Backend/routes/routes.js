@@ -15,6 +15,10 @@ router.get("/login", (req, res) => {
   res.send("<h1>Login Page</h1>");
 });
 
+router.get("/edit", (req, res) => {
+  res.send("<h1>Edit Page</h1>");
+});
+
 router.post("/signup", (req, res) => {
   var { name, email, password, username } = req.body;
   console.log(req.body);
