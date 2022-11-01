@@ -67,7 +67,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("http://localhost:4000/login", logedIn)
+        .post("https://mfga.herokuapp.com/login", logedIn)
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")

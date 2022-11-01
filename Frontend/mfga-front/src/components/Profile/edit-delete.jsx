@@ -49,7 +49,7 @@ const handleDelete = (e)=>{
 
 
 
-    axios.delete("http://localhost:4000/edit",{data: {email:email}})
+    axios.delete("https://mfga.herokuapp.com/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
@@ -91,7 +91,7 @@ const handleUpdate = (e)=>{
   console.log()
   
 
-  axios.post("http://localhost:4000/edit",updated)
+  axios.post("https://mfga.herokuapp.com/edit",updated)
   .then((res)=>{
       if(res.status===200){
           navigate('/login')

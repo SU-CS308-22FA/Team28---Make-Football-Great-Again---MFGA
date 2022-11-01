@@ -59,7 +59,7 @@ export const Register = () => {
     }
     
     if(isEmailValid && isAllFull){
-      axios.post("http://localhost:4000/signup", registered)
+      axios.post("https://mfga.herokuapp.com/signup", registered)
       .then((response) => {
         navigate('/login', {state: response.data})
       });
