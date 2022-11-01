@@ -46,7 +46,7 @@ router.post("/signup", (req, res) => {
   .catch((err) => {
     console.log(err);
   });
-
+})
 
   
   router.post("/login", (req, res) => {
@@ -92,8 +92,8 @@ router.route('/update').post((req,res)=>{ //I think this should be a post method
       .then(()=>res.json('User updated!'))
       .catch(err => res.status(400).json('Error: '+err));
 
-    });
+});
+
 })
 
 module.exports = router;
-

@@ -105,7 +105,7 @@ export const Login = () => {
             id="exampleEmail"
             name="email"
 
-            placeholder="email"
+            
 
             type="email"
             placeholder="@mail.com"
