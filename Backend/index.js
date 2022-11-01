@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require('cors')
 const { MONGOURL } = require("./keys");
+require('dotenv').config()
 
 
 const PORT = 4000;
@@ -28,7 +29,7 @@ mongoose.connection.on("error", () => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Server is successfully running on port: ", PORT);
 });
 
