@@ -15,40 +15,38 @@ router.get("/login", (req, res) => {
   res.send("<h1>Login Page</h1>");
 });
 
-
 router.post("/signup", (req, res) => {
-    var { name, email, password, username } = req.body;
-    console.log(req.body);
-    if (!email || !password || !name || !username) {
-      return res.status(422).json({ error: "Add all data" });
+  var { name, email, password, username } = req.body;
+  console.log(req.body);
+  if (!name || !email || !password || !username) {
+    return res.status(422).json({ error: "Add all data" });
+  }
+  User.findOne({ email: email })
+  .then((savedUser) => {
+    if (savedUser) {
+      return res
+        .status(422)
+        .json({ error: "User already exists with that email" });
     }
-    User.findOne({ email: email })
-      .then((savedUser) => {
-        if (savedUser) {
-          return res
-            .status(422)
-            .json({ error: "User already exists with that email" });
-        }
-        const user = new User({
-          email,
-          password,
-          name,
-          username,
-        });
-        user
-          .save()
-          .then((user) => {
-            res.json({ message: "Saved successfully" });
-            console.log(user.email);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const user = new User({
+      email,
+      password,
+      name,
+      username,
+    });
+    user.save()
+    .then((user) => {
+      res.json({ message: "Saved successfully" });
+      console.log(user.email);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
+
   
   router.post("/login", (req, res) => {
     var { email, password } = req.body;
@@ -80,3 +78,4 @@ router.post("/signup", (req, res) => {
   });
   
   module.exports = router;
+

@@ -55,6 +55,7 @@ export const Title = styled.h1`
   color: rgb(0, 0, 0, 0.5);
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  text-align: center;
 
   text-align:center;
 

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import { NavLink } from "reactstrap";
 
 import {useNavigate, useLocation} from 'react-router-dom';
 
@@ -91,6 +92,7 @@ export const Register = () => {
               className="btn btn-danger btn-block"
               value="Submit"
             />
+            <NavLink active href="/login">Login</NavLink>
           </form>
         </div>
       </div>

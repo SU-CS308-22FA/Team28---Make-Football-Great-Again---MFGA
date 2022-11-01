@@ -25,9 +25,11 @@ export const Login = () => {
     password: "",
   });
 
+
   const [errors, setError] = useState("");
 
   const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -102,6 +104,9 @@ export const Login = () => {
           <StyledInputEmail
             id="exampleEmail"
             name="email"
+
+            placeholder="email"
+
             type="email"
             placeholder="@mail.com"
             onChange={handleChange}
