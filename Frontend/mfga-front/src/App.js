@@ -19,6 +19,7 @@ function App() {
           {/* <Route index element={<Home />} /> */}
           <Route path="signup" element={<Register />} />
           <Route path="login" element={<Login/>} />
+          <Route path="edit" element={<Edit_Delete/>} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>

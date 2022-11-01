@@ -36,7 +36,7 @@ export const ContainerCard = styled(Card)`
   border-top-right-radius: 17%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 10%;
-  top: 8rem;
+  top: 4rem;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -154,4 +154,13 @@ export const StyledNavLink = styled(NavLink)`
   top: 29rem;
   left: 43%;
   color: #ff3838;
+`
+
+export const Error = styled.p`
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  top: 9rem;
+  left: 0;
+  color: red;
 `
