@@ -45,7 +45,8 @@ router.post("/signup", (req, res) => {
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
+});
 
   
   router.post("/login", (req, res) => {
@@ -73,7 +74,6 @@ router.post("/signup", (req, res) => {
       })
       .catch((err) => {
         console.log("There is an error")
-        return res.status(404)
       });
   });
   
