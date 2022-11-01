@@ -4,18 +4,13 @@ import {
     Title,
     ContainerDiv,
     ContainerCard,
-    StyledEmailLabel,
-    StyledPassLabel,
+    StyledUsernameLabel,
     StyledForm,
-    StyledInputEmail,
-    StyledInputPass,
+    StyledInputUsername,
     StyledButton,
-    StyledHr,
-    StyledP,
-    StyledNavLink,
   } from "./deleteElements";
 
-const Delete=()=>{
+export const Delete=()=>{
     const[values,setValues] = useState({
         username:"",
     });
@@ -40,7 +35,7 @@ const handleSubmit = (e)=>{
 
 
 
-    axios.delete("http://localhost:4000/delete")
+    axios.delete("http://localhost:4000/delete",deleted)
     .then((res)=>{
         if(res.status==200){
             console.log("Deleted");
@@ -61,33 +56,19 @@ const handleSubmit = (e)=>{
 return (
     <ContainerDiv>
       <ContainerCard>
-        <Title>Login</Title>
+        <Title>Delete</Title>
         <StyledForm>
-          <StyledEmailLabel>email</StyledEmailLabel>
-          <StyledInputEmail
-            id="exampleEmail"
-            name="email"
+          <StyledUsernameLabel>username</StyledUsernameLabel>
+          <StyledInputUsername
+            id="exampleUsername"
+            name="username"
             placeholder="with a placeholder"
-            type="email"
+            type="text"
             onChange={handleChange}
-            value={values.email}
+            value={values.username}
           />
-          <StyledPassLabel>password</StyledPassLabel>
-          <StyledInputPass
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            name="password"
-            value={values.password}
-          />
-          <StyledButton onClick={handleSubmit}>Sign-in</StyledButton>
-          <StyledP>
-            If you don't <br /> have an account
-          </StyledP>
-          <StyledHr />
-          <StyledNavLink active href="#">
-            Register
-          </StyledNavLink>
+
+          <StyledButton onClick={handleSubmit}>Delete</StyledButton>
         </StyledForm>
       </ContainerCard>
     </ContainerDiv>
