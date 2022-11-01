@@ -19,14 +19,12 @@ router.post("/signup", (req, res) => {
   var { name, email, password, username } = req.body;
   console.log(req.body);
   if (!name || !email || !password || !username) {
-    return res.status(422).json({ error: "Add all data" });
+    res.json({ message: "Please add all data" });
   }
   User.findOne({ email: email })
   .then((savedUser) => {
     if (savedUser) {
-      return res
-        .status(422)
-        .json({ error: "User already exists with that email" });
+      res.json({ message: "User already exists with that email" });
     }
     const user = new User({
       email,
