@@ -119,7 +119,7 @@ export const StyledButton = styled(Button)`
   display: flex;
   width: 30%;
   height: 35px;
-  left: 35px;
+  left: 15rem;
 
   border: none;
   justify-content: center;
@@ -136,7 +136,7 @@ export const StyledButton2 = styled(Button)`
   display: flex;
   width: 50%;
   height: 35px;
-  left: 10rem;
+  left: 35px;
   font-weight: bold;
 
   border: none;

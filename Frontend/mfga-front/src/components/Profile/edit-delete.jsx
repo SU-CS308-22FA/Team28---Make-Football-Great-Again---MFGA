@@ -12,13 +12,14 @@ import {
     StyledInputPassword,
     StyledButton2
 
-  } from "./deleteElements";
+  } from "./edit-deleteElements";
 
-export const Delete=()=>{
+export const Edit_Delete=()=>{
     const[values,setValues] = useState({
         username:"",
         password:"",
         name:"",
+        email:""
     });
 
 
@@ -30,7 +31,7 @@ const handleChange=(e)=>{
     });
 };
 
-const handleSubmit = (e)=>{
+const handleDelete = (e)=>{
     e.preventDefault();
     const {name,value}=e.target;
     const deleted={
@@ -42,7 +43,7 @@ const handleSubmit = (e)=>{
 
 
 
-    axios.delete("http://localhost:4000/delete",deleted)
+    axios.delete("http://localhost:4000/edit",{data: {username:deleted.username}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
@@ -58,6 +59,38 @@ const handleSubmit = (e)=>{
     setValues({
         username:"",
     });
+}
+
+const handleUpdate = (e)=>{
+  e.preventDefault();
+  const {name,value}=e.target;
+  const updated={
+      ...values,
+      [name]:value,
+      
+  };
+
+
+
+
+  axios.post("http://localhost:4000/edit",updated)
+  .then((res)=>{
+      if(res.status===200){
+          console.log("Updated!");
+      }
+      else{
+          console.log("Error happened, cannot update!");
+      }
+  })
+  .catch((err)=>{
+      console.log(err);
+  });
+
+  setValues({
+      username:"",
+      name:"",
+      password:"",
+  });
 }
 
 return (
@@ -96,8 +129,8 @@ return (
             value={values.password}
           />
 
-          <StyledButton onClick={handleSubmit}>Delete</StyledButton>
-          <StyledButton2 onClick={handleSubmit}>Update</StyledButton2>
+          <StyledButton onClick={handleDelete}>Delete</StyledButton>
+          <StyledButton2 onClick={handleUpdate}>Update</StyledButton2>
         </StyledForm>
       </ContainerCard>
     </ContainerDiv>

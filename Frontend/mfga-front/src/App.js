@@ -1,11 +1,11 @@
 import './App.css';
 import { Register } from './components/Register/register';
-import { Delete } from "./components/Profile/delete";
+import { Edit_Delete } from "./components/Profile/edit-delete";
 
 function App() {
   return (
     <div className="App">
-      <Delete/>
+      <Edit_Delete/>
     </div>
   );
 }

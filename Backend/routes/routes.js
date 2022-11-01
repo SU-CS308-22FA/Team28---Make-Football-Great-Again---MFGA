@@ -15,7 +15,7 @@ router.get("/login", (req, res) => {
   res.send("<h1>Login Page</h1>");
 });
 
-router.route("/delete").delete((req,res)=>{
+router.route("/edit").delete((req,res)=>{
   var username = req.body.username;
   console.log(req.body);
  
@@ -27,6 +27,21 @@ router.route("/delete").delete((req,res)=>{
       console.log("Deleted User: " + user);
     }
   });
-  
 })
+router.route('/edit').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.name = req.body.name;
+
+      user.save()
+      .then(()=>res.json('User updated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+});
+
+})
+
 module.exports = router;
