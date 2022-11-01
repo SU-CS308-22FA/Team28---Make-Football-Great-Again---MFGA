@@ -36,6 +36,7 @@ const handleSubmit = (e)=>{
     const deleted={
         ...values,
         [name]:value,
+        
     };
 
 
@@ -65,6 +66,8 @@ return (
         <Title>Edit</Title>
         <StyledForm>
           <StyledUsernameLabel>Email</StyledUsernameLabel>
+          <br/>
+
           <StyledInputUsername
             id="exampleUsername"
             name="username"
@@ -73,6 +76,7 @@ return (
             onChange={handleChange}
             value={values.username}
           />
+          <br/>
           <StyledInputName
             id="exampleName"
             name="name"
@@ -81,6 +85,8 @@ return (
             onChange={handleChange}
             value={values.name}
           />
+          <br/>
+
           <StyledInputPassword
             id="examplePassword"
             name="password"

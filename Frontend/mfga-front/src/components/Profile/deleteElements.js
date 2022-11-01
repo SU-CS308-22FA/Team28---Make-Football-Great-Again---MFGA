@@ -73,7 +73,7 @@ export const StyledInputUsername = styled(Input)`
   position: relative;
   left: 3rem;
   width: 80%;
-  margin = 5px;
+  
 
 
   border: none;
@@ -83,7 +83,7 @@ export const StyledInputUsername = styled(Input)`
 export const StyledInputName= styled(Input)`
   position: relative;
   left: 3rem;
-  margin = 5px;
+ 
 
   width: 80%;
 
@@ -93,7 +93,7 @@ export const StyledInputName= styled(Input)`
 `;
 export const StyledInputPassword = styled(Input)`
   position: relative;
-  margin = 5px;
+ 
   left: 3rem;
   width: 80%;
 
@@ -123,8 +123,10 @@ export const StyledButton = styled(Button)`
 
   border: none;
   justify-content: center;
+  font-weight: bold;
+  
 
-  color: rgb(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0, 0.8);
 
   background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
 `;
@@ -135,13 +137,14 @@ export const StyledButton2 = styled(Button)`
   width: 50%;
   height: 35px;
   left: 10rem;
+  font-weight: bold;
 
   border: none;
   justify-content: center;
 
-  color: rgb(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0, 0.8);
 
-  background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
+  background: #ffffff
 `;
 
 export const StyledHr = styled.hr`
