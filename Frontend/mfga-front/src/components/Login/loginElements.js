@@ -29,14 +29,14 @@ export const ContainerDiv = styled.div`
 
 export const ContainerCard = styled(Card)`
   position: relative;
-  height: 700px;
-  width: 450px;
+  height: 650px;
+  width: 400px;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius: 17%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 10%;
-  top: 8rem;
+  top: 5rem;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -55,6 +55,8 @@ export const Title = styled.h1`
   color: rgb(0, 0, 0, 0.5);
   text-decoration: underline;
   text-decoration-thickness: 1px;
+
+  text-align:center;
 
   font-size: 2.18rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -151,6 +153,8 @@ export const StyledP = styled.p`
   width: 50%;
   height: 1px;
   color: black;
+
+  text-align: center;
 `
 
 export const StyledNavLink = styled(NavLink)`
