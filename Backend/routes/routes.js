@@ -74,16 +74,19 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.post("/edit", (req, res) => {
-  const newusername = req.body.username;
-  const id = req.body.id;
-  try{
-    User.findById(id,( updatedUser)=> {
-      updatedUser.username = newusername;
-      updatedUser.save();
-    })
-  }
-  catch{}
-});
+router.route('/update').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.name = req.body.name;
+
+      user.save()
+      .then(()=>res.json('User updated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+    });
+})
 
 module.exports = router;

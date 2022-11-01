@@ -21,7 +21,7 @@ const [values,setValues] = useState({
 
 
 const updateName = (id) => {
-  axios.put("http://localhost:4000/edit");
+  axios.put("http://localhost:4000/edit",id.name);
 }
   return (
     <div>
