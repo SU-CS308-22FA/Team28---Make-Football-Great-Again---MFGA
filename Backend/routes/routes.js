@@ -55,23 +55,27 @@ router.post("/signup", (req, res) => {
     console.log(req.body);
     if (!email || !password) {
       return res.status(422).json({ error: "Add all data" });
+      // res.send("Please fill all your information")
     }
     User.findOne({ email: email })
       .then((foundUser) => {
         if (!foundUser) {
-          return res
-            .status(422)
-            .json({ error: "User does not exists with that email" });
+          // return res
+          //   .status(404)
+          //   .json({ error: "User does not exists with that email" });
+          res.json({ message: "There is no user exist with this email and password" });
         } else {
           if (foundUser.password === password) {
             res.json({ message: "Loged in successfully" });
           } else {
-            return res.status(422).json({ error: "Invalid email or password" });
+            // return res.status(422).json({ error: "Invalid email or password" });
+            res.json({ message: "Invalid email or password" });
           }
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log("There is an error")
+        return res.status(404)
       });
   });
   

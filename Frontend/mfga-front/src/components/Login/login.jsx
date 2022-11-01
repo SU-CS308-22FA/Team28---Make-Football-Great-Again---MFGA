@@ -15,14 +15,16 @@ import {
   StyledHr,
   StyledP,
   StyledNavLink,
+  Error,
 } from "./loginElements";
-import { Input, NavItem, NavLink } from "reactstrap";
 
 export const Login = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
+  const [errors, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,36 +42,52 @@ export const Login = () => {
       [name]: value,
     };
 
-    axios
-      .post("http://localhost:4000/login", logedIn)
-      .then((response) => {
-        if (response.status === 200) {
-          console.log("Logged in");
-        } else {
-          console.log("There is an error");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (values.email === "" || values.password === "") {
+      //console.log("Please fill all of your information");
 
-    setValues({
-      email: "",
-      password: "",
-    });
+      setError("Please fill all your information");
+
+      console.log(errors);
+    } else {
+      axios
+        .post("http://localhost:4000/login", logedIn)
+        .then((response) => {
+          if (response.data.message === "Loged in successfully") {
+            console.log("Logged in");
+            setError("")
+          }else if(response.data.message === "There is no user exist with this email and password"){
+            setError("No user exist with this email and password")
+            console.log(response.data.message)
+          }else{
+            setError("Incorrect email or password")
+            console.log(response.data.message)
+          }
+        }).catch((err) => {
+          setError("No user exist with this email and password")
+          console.log(err)
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+      // setValues({
+      //   email: "",
+      //   password: "",
+      // });
+    }
   };
 
   return (
     <ContainerDiv>
       <ContainerCard>
         <Title>Login</Title>
+        <Error>{errors}</Error>
         <StyledForm>
           <StyledEmailLabel>email</StyledEmailLabel>
           <StyledInputEmail
             id="exampleEmail"
             name="email"
-            placeholder="with a placeholder"
             type="email"
+            placeholder="@mail.com"
             onChange={handleChange}
             value={values.email}
           />

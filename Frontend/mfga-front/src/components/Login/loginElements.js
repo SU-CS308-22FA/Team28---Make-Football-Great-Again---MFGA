@@ -152,3 +152,12 @@ export const StyledNavLink = styled(NavLink)`
   left: 43%;
   color: #ff3838;
 `
+
+export const Error = styled.p`
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  top: 9rem;
+  left: 0;
+  color: red;
+`
