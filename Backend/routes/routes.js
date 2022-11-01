@@ -14,5 +14,14 @@ router.get("/signup", (req, res) => {
 router.get("/login", (req, res) => {
   res.send("<h1>Login Page</h1>");
 });
-
+router.route("/:id").get((req,res)=>{
+  User.findById(req.params.id)
+  .then(user=>res.json(user))
+  .catch(err=>res.status(400).json("Error:"+err));
+})
+router.route("/delete/:id").delete((req,res)=>{
+  User.findByIdAndDelete(req.params.id)
+  .then(()=>res.json("User deleted."))
+  .catch(err=>res.status(400).json("Error: "+err));
+})
 module.exports = router;
