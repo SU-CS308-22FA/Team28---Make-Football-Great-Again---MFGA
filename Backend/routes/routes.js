@@ -48,6 +48,7 @@ router.post("/signup", (req, res) => {
   });
 });
 
+
 router.post("/login", (req, res) => {
   var { email, password } = req.body;
   console.log(req.body);
@@ -71,6 +72,18 @@ router.post("/login", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+router.post("/edit", (req, res) => {
+  const newusername = req.body.username;
+  const id = req.body.id;
+  try{
+    User.findById(id,( updatedUser)=> {
+      updatedUser.username = newusername;
+      updatedUser.save();
+    })
+  }
+  catch{}
 });
 
 module.exports = router;
