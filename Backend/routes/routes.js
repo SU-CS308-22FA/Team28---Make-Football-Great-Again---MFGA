@@ -47,6 +47,7 @@ router.post("/signup", (req, res) => {
     console.log(err);
   });
 
+
   
   router.post("/login", (req, res) => {
     var { email, password } = req.body;
@@ -62,6 +63,7 @@ router.post("/signup", (req, res) => {
           //   .status(404)
           //   .json({ error: "User does not exists with that email" });
           res.json({ message: "There is no user exist with this email and password" });
+
         } else {
           if (foundUser.password === password) {
             res.json(foundUser);
@@ -77,5 +79,21 @@ router.post("/signup", (req, res) => {
       });
   });
   
-  module.exports = router;
+  
+router.route('/update').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.name = req.body.name;
+
+      user.save()
+      .then(()=>res.json('User updated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+    });
+})
+
+module.exports = router;
 
