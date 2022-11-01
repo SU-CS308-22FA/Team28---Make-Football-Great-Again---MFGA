@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Card, Form, Input, Label, NavLink } from "reactstrap";
+import { Button, Card, Container, Form, Input, Label, NavLink } from "reactstrap";
 
 export const ContainerDiv = styled.div`
   position: absolute;
@@ -36,7 +36,7 @@ export const ContainerCard = styled(Card)`
   border-top-right-radius: 17%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 10%;
-  top: 8rem;
+  top: 4rem;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -70,26 +70,65 @@ export const StyledForm = styled(Form)`
   right: 1.6rem;
 `;
 
-export const StyledInputEmail = styled(Input)`
+export const StyledInputName = styled(Input)`
   position: absolute;
-  top: 7rem;
+  top: 1rem;
   left: 3rem;
   width: 80%;
 
   border: none;
+  border-radius: 1rem;
+  padding: 10px 16px 10px 16px;
+  background: rgb(0, 0, 0, 0.1);
+`;
+
+export const StyledInputEmail = styled.input`
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
+  width: 80%;
+  height: 9%;
+
+  border: none;
+  border-radius: 1rem;
+  padding: 10px 16px 10px 16px;
 
   background: rgb(0, 0, 0, 0.1);
 `;
 
 export const StyledInputPass = styled(Input)`
   position: absolute;
-  top: 14rem;
+  top: 11rem;
   left: 3rem;
   width: 80%;
 
   border: none;
+  border-radius: 1rem;
+  padding: 10px 16px 10px 16px;
 
   background: rgb(0, 0, 0, 0.1);
+`;
+
+export const StyledInputUsername = styled(Input)`
+  position: absolute;
+  top: 16rem;
+  left: 3rem;
+  width: 80%;
+
+  border: none;
+  border-radius: 1rem;
+  padding: 10px 16px 10px 16px;
+  background: rgb(0, 0, 0, 0.1);
+`;
+
+export const StyledNameLabel = styled(Label)`
+  position: absolute;
+  left: 1.5rem;
+  top: -1rem;
+
+  font-size: 1.3rem;
+
+  color: rgb(0, 0, 0, 0.5);
 `;
 
 export const StyledEmailLabel = styled(Label)`
@@ -105,7 +144,16 @@ export const StyledEmailLabel = styled(Label)`
 export const StyledPassLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: 11rem;
+  top: 9rem;
+
+  font-size: 1.3rem;
+
+  color: rgb(0, 0, 0, 0.5);
+`;
+export const StyledUsernameLabel = styled(Label)`
+  position: absolute;
+  left: 1.5rem;
+  top: 14rem;
 
   font-size: 1.3rem;
 
@@ -145,7 +193,6 @@ export const StyledP = styled.p`
   width: 50%;
   height: 1px;
   color: black;
-
   text-align: center;
 `
 
