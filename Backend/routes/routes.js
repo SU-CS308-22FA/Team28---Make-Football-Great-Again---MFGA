@@ -80,14 +80,15 @@ router.post("/signup", (req, res) => {
 
 
 router.route("/edit").delete((req,res)=>{
-  var username = req.body.username;
+  var email = req.body.email;
   console.log(req.body);
  
-  User.findOneAndDelete({username:username},function(err,user){
+  User.findOneAndDelete({email:email},function(err,user){
     if(err){
       console.log(err)
     }
     else{
+      res.json({message: "User is deleted"})
       console.log("Deleted User: " + user);
     }
   });

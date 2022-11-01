@@ -78,7 +78,7 @@ export const Login = () => {
           }else{
             console.log("Logged in");
             setError("")
-            navigate("/signup", {state: response.data});
+            navigate("/edit", {state: response.data});
           }
         }).catch((err) => {
           setError("No user exist with this email and password")

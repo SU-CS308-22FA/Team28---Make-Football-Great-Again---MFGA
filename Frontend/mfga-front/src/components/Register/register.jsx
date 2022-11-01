@@ -20,6 +20,7 @@ import {
   StyledUsernameLabel,
 } from "./registerElements";
 import { Input, NavItem } from "reactstrap";
+import { useNavigate } from 'react-router-dom';
 
 
 export const Register = () => {
@@ -29,6 +30,8 @@ export const Register = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +61,7 @@ export const Register = () => {
     if(isEmailValid && isAllFull){
       axios.post("http://localhost:4000/signup", registered)
       .then((response) => {
-        window.alert(response.data.message);
+        navigate('/login', {state: response.data})
       });
     }
     else{

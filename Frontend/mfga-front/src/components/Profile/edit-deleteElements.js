@@ -71,8 +71,8 @@ export const StyledForm = styled(Form)`
 
 export const StyledInputUsername = styled(Input)`
   position: relative;
-  left: 3rem;
-  width: 80%;
+  left: 5rem;
+  width: 70%;
   
 
 
@@ -82,10 +82,10 @@ export const StyledInputUsername = styled(Input)`
 `;
 export const StyledInputName= styled(Input)`
   position: relative;
-  left: 3rem;
+  left: 5rem;
  
 
-  width: 80%;
+  width: 70%;
 
   border: none;
 
@@ -94,8 +94,8 @@ export const StyledInputName= styled(Input)`
 export const StyledInputPassword = styled(Input)`
   position: relative;
  
-  left: 3rem;
-  width: 80%;
+  left: 5rem;
+  width: 70%;
 
   border: none;
 
@@ -171,4 +171,17 @@ export const StyledNavLink = styled(NavLink)`
   top: 29rem;
   left: 43%;
   color: #ff3838;
+`
+
+export const StyleUsername = styled.p`
+    position: absolute;
+    top: 3.2rem;
+`
+export const StylePass = styled.p`
+    position: absolute;
+    top: 10.7rem;
+`
+export const StyleName = styled.p`
+    position: absolute;
+    top: 7rem;
 `

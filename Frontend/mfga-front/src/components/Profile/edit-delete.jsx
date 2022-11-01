@@ -10,9 +10,14 @@ import {
     StyledButton,
     StyledInputName,
     StyledInputPassword,
-    StyledButton2
+    StyledButton2,
+    StyleUsername,
+    StyleName,
+    StylePass
 
   } from "./edit-deleteElements";
+
+import {useNavigate, useLocation} from 'react-router-dom';
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({
@@ -22,14 +27,15 @@ export const Edit_Delete=()=>{
         email:""
     });
 
+    const [pass, setPass] = useState("")
+    const [uname, setUsername] = useState("")
+    const [fname, setFullname] = useState("")
 
-const handleChange=(e)=>{
-    const{name,value}=e.target;
-    setValues({
-        ...values,
-        [name]:value,
-    });
-};
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const email = location.state.email;
+    
 
 const handleDelete = (e)=>{
     e.preventDefault();
@@ -43,10 +49,11 @@ const handleDelete = (e)=>{
 
 
 
-    axios.delete("http://localhost:4000/edit",{data: {username:deleted.username}})
+    axios.delete("http://localhost:4000/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
+            navigate('/login', {state: res.data});
         }
         else{
             console.log("Error happened, cannot delete!");
@@ -55,27 +62,40 @@ const handleDelete = (e)=>{
     .catch((err)=>{
         console.log(err);
     });
-
-    setValues({
-        username:"",
-    });
 }
 
 const handleUpdate = (e)=>{
   e.preventDefault();
-  const {name,value}=e.target;
+
+  // updated.email = email;
+
+  if(fname === ''){
+    fname = location.state.name;
+  }if(uname === ''){
+    uname = location.state.username;
+  }if(pass === ''){
+    pass = location.state.password;
+  }
+
+  console.log("Pass is" + pass)
+  console.log("username is" + uname)
+  console.log("fname is" + fname)
+
   const updated={
-      ...values,
-      [name]:value,
-      
+    name: fname,
+    username: uname,
+    email: email,
+    password: pass,
   };
 
-
-
+  console.log()
+  
 
   axios.post("http://localhost:4000/edit",updated)
   .then((res)=>{
       if(res.status===200){
+          navigate('/login')
+          window.alert("User is updated! Please login with new information")
           console.log("Updated!");
       }
       else{
@@ -98,35 +118,36 @@ return (
       <ContainerCard>
         <Title>Edit</Title>
         <StyledForm>
-          <StyledUsernameLabel>Email</StyledUsernameLabel>
+          <StyledUsernameLabel>User email: {email}</StyledUsernameLabel>
           <br/>
-
+          <StyleUsername>Username:</StyleUsername>
           <StyledInputUsername
             id="exampleUsername"
             name="username"
-            placeholder="username"
+            placeholder= {location.state.username}
             type="text"
-            onChange={handleChange}
-            value={values.username}
+            value={uname}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <br/>
+          <StyleName>Name:</StyleName>
           <StyledInputName
             id="exampleName"
             name="name"
-            placeholder="name"
+            placeholder={location.state.name}
             type="text"
-            onChange={handleChange}
-            value={values.name}
+            value={fname}
+            onChange={(e) => setFullname(e.target.value)}
           />
           <br/>
-
+          <StylePass>Password:</StylePass>
           <StyledInputPassword
             id="examplePassword"
             name="password"
-            placeholder="password"
+            placeholder={location.state.password}
             type="text"
-            onChange={handleChange}
-            value={values.password}
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
           />
 
           <StyledButton onClick={handleDelete}>Delete</StyledButton>
