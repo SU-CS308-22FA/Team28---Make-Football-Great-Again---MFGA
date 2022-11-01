@@ -46,31 +46,36 @@ router.post("/signup", (req, res) => {
   .catch((err) => {
     console.log(err);
   });
-});
 
-router.post("/login", (req, res) => {
-  var { email, password } = req.body;
-  console.log(req.body);
-  if (!email || !password) {
-    return res.status(422).json({ error: "Add all data" });
-  }
-  User.findOne({ email: email })
-    .then((foundUser) => {
-      if (!foundUser) {
-        return res
-          .status(422)
-          .json({ error: "User does not exists with that email" });
-      } else {
-        if (foundUser.password === password) {
-          res.json({ message: "Loged in successfully" });
+  
+  router.post("/login", (req, res) => {
+    var { email, password } = req.body;
+    console.log(req.body);
+    if (!email || !password) {
+      return res.status(422).json({ error: "Add all data" });
+      // res.send("Please fill all your information")
+    }
+    User.findOne({ email: email })
+      .then((foundUser) => {
+        if (!foundUser) {
+          // return res
+          //   .status(404)
+          //   .json({ error: "User does not exists with that email" });
+          res.json({ message: "There is no user exist with this email and password" });
         } else {
-          return res.status(422).json({ error: "Invalid email or password" });
+          if (foundUser.password === password) {
+            res.json(foundUser);
+          } else {
+            // return res.status(422).json({ error: "Invalid email or password" });
+            res.json({ message: "Invalid email or password" });
+          }
         }
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+      })
+      .catch((err) => {
+        console.log("There is an error")
+        return res.status(404)
+      });
+  });
+  
+  module.exports = router;
 
-module.exports = router;
