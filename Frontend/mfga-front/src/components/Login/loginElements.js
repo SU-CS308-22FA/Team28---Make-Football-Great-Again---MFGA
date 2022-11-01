@@ -29,14 +29,14 @@ export const ContainerDiv = styled.div`
 
 export const ContainerCard = styled(Card)`
   position: relative;
-  height: 700px;
-  width: 450px;
+  height: 650px;
+  width: 400px;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius: 17%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 10%;
-  top: 8rem;
+  top: 5rem;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -57,6 +57,8 @@ export const Title = styled.h1`
   text-decoration-thickness: 1px;
   text-align: center;
 
+  text-align:center;
+
   font-size: 2.18rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
@@ -70,25 +72,32 @@ export const StyledForm = styled(Form)`
   right: 1.6rem;
 `;
 
-export const StyledInputEmail = styled(Input)`
+export const StyledInputEmail = styled.input`
   position: absolute;
   top: 7rem;
   left: 3rem;
   width: 80%;
 
+  padding: 10px 16px 10px 16px;
+
+  border-radius: 1rem;
   border: none;
 
   background: rgb(0, 0, 0, 0.1);
 `;
 
-export const StyledInputPass = styled(Input)`
+export const StyledInputPass = styled.input`
   position: absolute;
   top: 14rem;
   left: 3rem;
   width: 80%;
 
-  border: none;
+  padding: 10px 16px 10px 16px;
 
+  border-radius: 1rem;
+
+  border: none;
+  
   background: rgb(0, 0, 0, 0.1);
 `;
 
@@ -145,6 +154,7 @@ export const StyledP = styled.p`
   width: 50%;
   height: 1px;
   color: black;
+
   text-align: center;
 `
 
@@ -153,4 +163,13 @@ export const StyledNavLink = styled(NavLink)`
   top: 29rem;
   left: 43%;
   color: #ff3838;
+`
+
+export const Error = styled.p`
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  top: 9rem;
+  left: 0;
+  color: red;
 `

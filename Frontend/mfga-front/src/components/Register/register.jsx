@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import axios from "axios";
 import { NavLink } from "reactstrap";
 
+import {useNavigate, useLocation} from 'react-router-dom';
+
 export const Register = () => {
   const [values, setValues] = useState({
     name: "",
@@ -9,6 +11,10 @@ export const Register = () => {
     email: "",
     password: "",
   });
+
+  const location = useLocation()
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +26,9 @@ export const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(location.state)
+
     const { name, value } = e.target;
     const registered = {
       ...values,
