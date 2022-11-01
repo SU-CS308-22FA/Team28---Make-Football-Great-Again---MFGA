@@ -8,6 +8,10 @@ import axios, { Axios } from "axios";
 
 export const Edit = ()  => {
   
+    const[name,setName] = useState("");
+    const[pass,setPass] = useState("");
+    const[username,setUsername] = useState("");
+    
 const [values,setValues] = useState({
     name: "",
     username: "",
@@ -16,11 +20,8 @@ const [values,setValues] = useState({
 });
 
 
-
-const [newusername, setUserName] =  useState();
-
 const updateName = (id) => {
-  axios.put("http://localhost:3000/edit",{id:id , newusername:newusername});
+  axios.put("http://localhost:4000/edit");
 }
   return (
     <div>
