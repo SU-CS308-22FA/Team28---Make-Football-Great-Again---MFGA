@@ -123,7 +123,7 @@ export const Register = () => {
             Do you <br /> have an account?
           </StyledP>
           <StyledHr />
-          <StyledNavLink active href="/signup">
+          <StyledNavLink active href="/login">
             Login
           </StyledNavLink>
         </StyledForm>
