@@ -8,11 +8,17 @@ import {
     StyledForm,
     StyledInputUsername,
     StyledButton,
+    StyledInputName,
+    StyledInputPassword,
+    StyledButton2
+
   } from "./deleteElements";
 
 export const Delete=()=>{
     const[values,setValues] = useState({
         username:"",
+        password:"",
+        name:"",
     });
 
 
@@ -37,7 +43,7 @@ const handleSubmit = (e)=>{
 
     axios.delete("http://localhost:4000/delete",deleted)
     .then((res)=>{
-        if(res.status==200){
+        if(res.status===200){
             console.log("Deleted");
         }
         else{
@@ -56,19 +62,36 @@ const handleSubmit = (e)=>{
 return (
     <ContainerDiv>
       <ContainerCard>
-        <Title>Delete</Title>
+        <Title>Edit</Title>
         <StyledForm>
-          <StyledUsernameLabel>username</StyledUsernameLabel>
+          <StyledUsernameLabel>Email</StyledUsernameLabel>
           <StyledInputUsername
             id="exampleUsername"
             name="username"
-            placeholder="with a placeholder"
+            placeholder="username"
             type="text"
             onChange={handleChange}
             value={values.username}
           />
+          <StyledInputName
+            id="exampleName"
+            name="name"
+            placeholder="name"
+            type="text"
+            onChange={handleChange}
+            value={values.name}
+          />
+          <StyledInputPassword
+            id="examplePassword"
+            name="password"
+            placeholder="password"
+            type="text"
+            onChange={handleChange}
+            value={values.password}
+          />
 
           <StyledButton onClick={handleSubmit}>Delete</StyledButton>
+          <StyledButton2 onClick={handleSubmit}>Update</StyledButton2>
         </StyledForm>
       </ContainerCard>
     </ContainerDiv>

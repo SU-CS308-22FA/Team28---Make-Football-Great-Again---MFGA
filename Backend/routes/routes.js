@@ -16,7 +16,7 @@ router.get("/login", (req, res) => {
 });
 
 router.route("/delete").delete((req,res)=>{
-  var { username } = req.body;
+  var username = req.body.username;
   console.log(req.body);
  
   User.findOneAndDelete({username:username},function(err,user){

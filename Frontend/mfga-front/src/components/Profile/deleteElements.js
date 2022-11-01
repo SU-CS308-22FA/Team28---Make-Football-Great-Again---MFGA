@@ -70,8 +70,30 @@ export const StyledForm = styled(Form)`
 `;
 
 export const StyledInputUsername = styled(Input)`
-  position: absolute;
-  top: 7rem;
+  position: relative;
+  left: 3rem;
+  width: 80%;
+  margin = 5px;
+
+
+  border: none;
+
+  background: rgb(0, 0, 0, 0.1);
+`;
+export const StyledInputName= styled(Input)`
+  position: relative;
+  left: 3rem;
+  margin = 5px;
+
+  width: 80%;
+
+  border: none;
+
+  background: rgb(0, 0, 0, 0.1);
+`;
+export const StyledInputPassword = styled(Input)`
+  position: relative;
+  margin = 5px;
   left: 3rem;
   width: 80%;
 
@@ -80,13 +102,12 @@ export const StyledInputUsername = styled(Input)`
   background: rgb(0, 0, 0, 0.1);
 `;
 
-
 export const StyledUsernameLabel = styled(Label)`
-  position: absolute;
-  left: 1.5rem;
-  top: 4rem;
+  position: center;
+  
 
-  font-size: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: bold;
 
   color: rgb(0, 0, 0, 0.5);
 `;
@@ -96,9 +117,24 @@ export const StyledButton = styled(Button)`
   position: absolute;
   top: 21rem;
   display: flex;
+  width: 30%;
+  height: 35px;
+  left: 35px;
+
+  border: none;
+  justify-content: center;
+
+  color: rgb(0, 0, 0, 0.5);
+
+  background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
+`;
+export const StyledButton2 = styled(Button)`
+  position: absolute;
+  top: 21rem;
+  display: flex;
   width: 50%;
   height: 35px;
-  left: 6rem;
+  left: 10rem;
 
   border: none;
   justify-content: center;
