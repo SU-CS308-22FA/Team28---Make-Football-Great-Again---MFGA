@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, {useState} from "react";
 import axios from "axios";
+import { NavLink } from "reactstrap";
 
 export const Register = () => {
   const [values, setValues] = useState({
@@ -83,6 +83,7 @@ export const Register = () => {
               className="btn btn-danger btn-block"
               value="Submit"
             />
+            <NavLink active href="/login">Login</NavLink>
           </form>
         </div>
       </div>
