@@ -19,14 +19,12 @@ router.post("/signup", (req, res) => {
   var { name, email, password, username } = req.body;
   console.log(req.body);
   if (!name || !email || !password || !username) {
-    return res.status(422).json({ error: "Add all data" });
+    res.json({ message: "Please add all data" });
   }
   User.findOne({ email: email })
   .then((savedUser) => {
     if (savedUser) {
-      return res
-        .status(422)
-        .json({ error: "User already exists with that email" });
+      res.json({ message: "User already exists with that email" });
     }
     const user = new User({
       email,
@@ -46,8 +44,7 @@ router.post("/signup", (req, res) => {
   .catch((err) => {
     console.log(err);
   });
-})
-
+});
   
   router.post("/login", (req, res) => {
     var { email, password } = req.body;
@@ -75,12 +72,27 @@ router.post("/signup", (req, res) => {
       })
       .catch((err) => {
         console.log("There is an error")
-        return res.status(404)
+        
       });
   });
   
   
-router.route('/update').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+
+
+router.route("/edit").delete((req,res)=>{
+  var username = req.body.username;
+  console.log(req.body);
+ 
+  User.findOneAndDelete({username:username},function(err,user){
+    if(err){
+      console.log(err)
+    }
+    else{
+      console.log("Deleted User: " + user);
+    }
+  });
+})
+router.route('/edit').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
