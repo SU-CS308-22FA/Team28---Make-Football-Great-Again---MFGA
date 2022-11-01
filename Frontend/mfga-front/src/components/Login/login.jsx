@@ -1,6 +1,7 @@
 //Alper Kaan
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import {
   Title,
@@ -26,6 +27,8 @@ export const Login = () => {
 
   const [errors, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -42,25 +45,38 @@ export const Login = () => {
       [name]: value,
     };
 
+    var isEmailValid = false;
+
+    for(let i = 0; i < values.email.length ; i++ ){
+      //console.log(values.email[i])
+      if(values.email[i] === '@'){
+        isEmailValid = true;
+      }
+    }
+
     if (values.email === "" || values.password === "") {
       //console.log("Please fill all of your information");
 
       setError("Please fill all your information");
 
-      console.log(errors);
+      //console.log(errors);
+    }else if(!isEmailValid){
+      setError("Please enter a valid email");
+      console.log("Wrong email")
     } else {
       axios
         .post("http://localhost:4000/login", logedIn)
         .then((response) => {
-          if (response.data.message === "Loged in successfully") {
-            console.log("Logged in");
-            setError("")
-          }else if(response.data.message === "There is no user exist with this email and password"){
+          if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
             console.log(response.data.message)
-          }else{
+          }else if(response.data.message === "Invalid email or password"){
             setError("Incorrect email or password")
             console.log(response.data.message)
+          }else{
+            console.log("Logged in");
+            setError("")
+            navigate("/signup", {state: response.data});
           }
         }).catch((err) => {
           setError("No user exist with this email and password")
@@ -104,7 +120,7 @@ export const Login = () => {
             If you don't <br /> have an account
           </StyledP>
           <StyledHr />
-          <StyledNavLink active href="#">
+          <StyledNavLink active href="/signup">
             Register
           </StyledNavLink>
         </StyledForm>

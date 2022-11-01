@@ -66,7 +66,7 @@ router.post("/signup", (req, res) => {
           res.json({ message: "There is no user exist with this email and password" });
         } else {
           if (foundUser.password === password) {
-            res.json({ message: "Loged in successfully" });
+            res.json(foundUser);
           } else {
             // return res.status(422).json({ error: "Invalid email or password" });
             res.json({ message: "Invalid email or password" });

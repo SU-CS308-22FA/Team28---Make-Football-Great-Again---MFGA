@@ -69,25 +69,32 @@ export const StyledForm = styled(Form)`
   right: 1.6rem;
 `;
 
-export const StyledInputEmail = styled(Input)`
+export const StyledInputEmail = styled.input`
   position: absolute;
   top: 7rem;
   left: 3rem;
   width: 80%;
 
+  padding: 10px 16px 10px 16px;
+
+  border-radius: 1rem;
   border: none;
 
   background: rgb(0, 0, 0, 0.1);
 `;
 
-export const StyledInputPass = styled(Input)`
+export const StyledInputPass = styled.input`
   position: absolute;
   top: 14rem;
   left: 3rem;
   width: 80%;
 
-  border: none;
+  padding: 10px 16px 10px 16px;
 
+  border-radius: 1rem;
+
+  border: none;
+  
   background: rgb(0, 0, 0, 0.1);
 `;
 
