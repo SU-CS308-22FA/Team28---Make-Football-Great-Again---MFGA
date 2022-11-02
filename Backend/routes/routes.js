@@ -49,6 +49,8 @@ router.post("/signup", (req, res) => {
     console.log(err);
   });
 });
+
+
   
   router.post("/login", (req, res) => {
     var { email, password } = req.body;
@@ -76,7 +78,7 @@ router.post("/signup", (req, res) => {
       })
       .catch((err) => {
         console.log("There is an error")
-        
+
       });
   });
   
