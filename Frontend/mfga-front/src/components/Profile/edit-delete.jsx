@@ -27,9 +27,9 @@ export const Edit_Delete=()=>{
         email:""
     });
 
-    const [pass, setPass] = useState("")
-    const [uname, setUsername] = useState("")
-    const [fname, setFullname] = useState("")
+    var [pass, setPass] = useState("")
+    var [uname, setUsername] = useState("")
+    var [fname, setFullname] = useState("")
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -127,7 +127,13 @@ return (
             placeholder= {location.state.username}
             type="text"
             value={uname}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => 
+            {
+              if(e ==="")
+              {setUsername(location.state.username)}
+              else{setUsername(e.target.value)}
+            }
+            }
           />
           <br/>
           <StyleName>Name:</StyleName>
@@ -137,7 +143,13 @@ return (
             placeholder={location.state.name}
             type="text"
             value={fname}
-            onChange={(e) => setFullname(e.target.value)}
+            onChange={(e) => 
+            {
+              if(e ==="")
+              {setFullname(location.state.name)}
+              else{setFullname(e.target.value)}
+            }
+            }
           />
           <br/>
           <StylePass>Password:</StylePass>
@@ -147,7 +159,13 @@ return (
             placeholder={location.state.password}
             type="text"
             value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => 
+            {
+              if(e ==="")
+              {setPass(location.state.password)}
+              else{setPass(e.target.value)}
+            }
+            }
           />
 
           <StyledButton onClick={handleDelete}>Delete</StyledButton>
