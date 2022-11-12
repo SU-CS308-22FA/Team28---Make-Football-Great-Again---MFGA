@@ -25,7 +25,7 @@ import {
 } from "./registerElements";
 
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Register = () => {
   const [values, setValues] = useState({

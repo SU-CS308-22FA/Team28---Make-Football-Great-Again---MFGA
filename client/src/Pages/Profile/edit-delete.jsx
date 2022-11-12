@@ -20,7 +20,7 @@ import {
   } from "./edit-deleteElements";
 
 import {useNavigate, useLocation} from 'react-router-dom';
-import { Footer } from "../Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({

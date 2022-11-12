@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
+
 import {
   Title,
   ContainerDiv,
