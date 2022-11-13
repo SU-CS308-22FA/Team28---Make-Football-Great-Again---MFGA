@@ -88,6 +88,13 @@ export const Login = () => {
 
 
           }
+          else if(response.data.role === 2){
+            console.log("Board Member logged in");
+            setError("")
+            navigate("/board", {state: response.data});
+
+
+          }
           else{
             console.log(response.data)
             console.log("Logged in");
