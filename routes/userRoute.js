@@ -205,6 +205,47 @@ router.route('/edit').post((req,res)=>{
 
 })
 
+const axios = require("axios");
+const cheerio = require("cheerio");
+const GalatasarayUrl = "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
+const galatasaray_kadro_data = []
+async function getGalatarasayKadro(url){
+
+  try{
+      const response = await axios.get(url);
+      const $=cheerio.load(response.data)
+      const kadro = $("tr");
+      kadro.each(function(){
+          const pname= $(this).find(".hide").text();
+          const position= $(this).find("tr:nth-child(2) td").text();
+          const birth= $(this).find("td:nth-child(4)").text();
+         if(pname.length > 1)
+   {
+          galatasaray_kadro_data.push({pname,position,birth});
+          Player.findOne({name: pname})
+      .then((foundUser)=> 
+      {
+        if (!foundUser) {
+          const pl = new Player({
+            name: pname,
+            position: position,
+            birth: birth,
+            team: "Fenerbahce"
+          })
+          pl.save()
+                        }
+     })
+    }
+                          });
+      
+     }
+  catch(err){
+      console.log(err);
+  }
+}
+getGalatarasayKadro(GalatasarayUrl);
+
+
 router.route('/teams').get((req,res)=>{
   Player.find()
  .then(players => res.json(players))

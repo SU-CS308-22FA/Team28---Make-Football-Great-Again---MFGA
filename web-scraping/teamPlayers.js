@@ -4,7 +4,7 @@ const express = require("express");
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const GalatasarayUrl = "https://www.transfermarkt.com.tr/galatasaray-istanbul/startseite/verein/141"
+const GalatasarayUrl = "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
 const galatasaray_kadro_data = []
 async function getGalatarasayKadro(url){
 
@@ -22,10 +22,6 @@ async function getGalatarasayKadro(url){
            if(name.length > 1){
             
             galatasaray_kadro_data.push({name,position,birth});
-
-
-            
-
            }
            
 
@@ -44,3 +40,4 @@ async function getGalatarasayKadro(url){
 }
 
 getGalatarasayKadro(GalatasarayUrl);
+

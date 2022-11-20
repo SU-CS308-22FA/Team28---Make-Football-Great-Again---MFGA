@@ -20,7 +20,7 @@ export const Galatasaray= (props) =>{
   
   
   function createCard(player) {
-      if (player.team === props.team) {
+      if (player.team === "Fenerbahce") {
         return (<PlayerCard
 
           key={player._id}
