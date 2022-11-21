@@ -53,7 +53,7 @@ const handleSubmit = (e) => {
             window.alert("User successfully selected team")
             
           
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password,team: response.data.user.team}))
+            localStorage.setItem("currentUser", JSON.stringify({team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
 
         });

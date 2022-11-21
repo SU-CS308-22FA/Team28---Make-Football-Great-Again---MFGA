@@ -28,6 +28,7 @@ export const ContainerDiv = styled.div`
 `;
 
 export const ContainerCard = styled(Card)`
+  
   height: 45rem;  
   width: 60rem;
   border-width: 3px;
