@@ -43,7 +43,7 @@ function Routers() {
                 <Route path="currentstats" element={<CurrentStats/>}/>
                 <Route path="profileFront" element={<Auth> <RoleUser> <Profile/> </RoleUser> </Auth>} />
                 <Route path="referee" element={<Referee/>} />
-                {/* <Route path="*" element={<NoPage />} /> */}
+                { <Route path="*" element={<NoPage />} /> }
             </Route>
             </Routes>
         </Router>
