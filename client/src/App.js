@@ -43,7 +43,7 @@ function App() {
 
             <Route path="admin" element={<Admin/>} />
             <Route path="board" element={<BoardMember/>} />
-            <Route path="team" element={<Team/>} />
+            <Route path="teams" element={<Team/>} />
             <Route path="teams/:team" element={<TeamPage/>} />
 
 
