@@ -128,3 +128,35 @@ export const TeamImg = styled.img`
   height: 200px;
 
 `;
+export const standingsTitle = styled.h1`
+
+  color: black;
+  position: absolute;
+  
+  text-decoration-thickness: 1px;
+  left:10px;
+  text-align: center;
+  font-weight: bold;
+  margin-top:50px;
+
+  font-size: 2.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const StandingCard = styled(Card)`
+  position: absolute;
+  height: 10rem;  
+  width: 15rem;
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-top-right-radius:5%;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+  border-bottom-right-radius:5%;
+  top: 38%;
+  left: 43.5%;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  background: white;
+  box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
+`;

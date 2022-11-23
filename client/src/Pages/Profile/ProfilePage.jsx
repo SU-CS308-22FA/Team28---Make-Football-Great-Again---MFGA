@@ -27,6 +27,14 @@ export const Profile = () => {
 
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const email = user.email;
+  const name = user.name;
+  const username = user.username;
+  const password = user.password;
+  const role = user.role;
+  const status = user.status;
+  
+
+
   var team = user.team;
 
   const [u_teams, SetUteams] = useState([]);
@@ -43,6 +51,19 @@ export const Profile = () => {
       console.log(err);
     });
   }, [])
+
+  const [teamStat, setTeamStat] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
+
+      setTeamStat(result.data);
+    };
+
+    fetchData();
+  }, []);
+
 
   const handleSubmit = (e) => {
     navigate("/edit");
@@ -68,14 +89,18 @@ export const Profile = () => {
         localStorage.setItem(
           "currentUser",
           JSON.stringify({
-            name: response.data.user.name,
-            username: response.data.user.username,
-            email: response.data.user.email,
-            password: response.data.user.password,
-            team: response.data.user.team,
+            name: name,
+            username:username,
+            email: email,
+            role: role,
+            status: status,
+            password: password,
+            team: Selectedteam.team,
           })
         );
-        localStorage.setItem("user", response.data.user);
+        navigate("/profileFront");
+
+        
       });
   };
 
@@ -114,13 +139,16 @@ export const Profile = () => {
         <StyledNavLink active href="/edit">
           Edit
         </StyledNavLink>
-        <StandingCard>
-          <standingsTitle>Rank:</standingsTitle>
-          <standingsTitle>Win:</standingsTitle>
-          <standingsTitle>Lose:</standingsTitle>
-          <standingsTitle>Draw:</standingsTitle>
-          <standingsTitle>Points:</standingsTitle>
+        {teamStat.filter(CurrentTeam => CurrentTeam.team === team.trim()).map(filteredTeam => (
+          <StandingCard>
+          <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
+          <standingsTitle>Win: {filteredTeam.win}</standingsTitle>
+          <standingsTitle>Lose: {filteredTeam.lose}</standingsTitle>
+          <standingsTitle>Draw: {filteredTeam.draw}</standingsTitle>
+          <standingsTitle>Point: {filteredTeam.point}</standingsTitle>
         </StandingCard>
+  ))}
+        
       </ContainerCard>
     </ContainerDiv>
   );
