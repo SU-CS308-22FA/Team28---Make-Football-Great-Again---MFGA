@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { ContainerDiv, Title,DropDownContainer2,DropDownHeader2,DropDownList2,ListItem2,DropDownListContainer2 } from "./RefereeElements";
+import { ContainerDiv,FilterTitle, Title,DropDownContainer2,DropDownHeader2,DropDownList2,ListItem2,DropDownListContainer2 } from "./RefereeElements";
 import { Footer } from "../../components/Footer/Footer";
 import { RefereeCard } from "../../components/RefereeCard/refereeCard";
 
@@ -10,7 +10,7 @@ export const Referee = (props) => {
   const [referees, SetReferees] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
-  const options = [1, 2, 3,4,5];
+  const options = [0,1, 2, 3,4,5];
   const toggling = () => setIsOpen(!isOpen);
 
   useEffect(() => {
@@ -34,11 +34,22 @@ export const Referee = (props) => {
       <RefereeCard
         key={referee._id}
         name={referee.name}
-        rating ={5}
+        rating ={CalculateRating(referee)}
       />
     );
   }
   
+  function CalculateRating(referee){
+
+    if (referee.point === 0 ) {
+      return 0;
+    }
+    else{
+      return (Math.round((referee.point/referee.ratedPeople)* 100) / 100).toFixed(1);
+    }
+
+  }
+
   
   const onOptionClicked = value => () => {
     setSelectedOption(value);
@@ -48,17 +59,19 @@ export const Referee = (props) => {
   };
   
   return (
+    
     <ContainerDiv>
 
     <Title>Referees</Title>
+    <FilterTitle>Filter Rating</FilterTitle>
     
-      
-    {referees.filter((a)=> a.name === "Arda Kardesler" ).map(createCard)}
+    
+    {referees.filter((referee)=> CalculateRating(referee) >= selectedOption).map(createCard)}
 
       
       <DropDownContainer2>
         <DropDownHeader2 onClick={toggling}>
-          {selectedOption||"Select a number to see higher rated referees"}
+          {0||selectedOption}
         </DropDownHeader2>
         {isOpen && (
           <DropDownListContainer2>
@@ -72,8 +85,19 @@ export const Referee = (props) => {
           </DropDownListContainer2>
         )}
       </DropDownContainer2>
-       {referees.filter((a)=> a.rating === "5" ).map(createCard)}
+      
+      
+       <br></br>
+       <br></br>
+       <br></br>
+       <br></br>
+       <br></br>
+
       <Footer></Footer>
+    
     </ContainerDiv>
+   
+   
+   
   );
 };

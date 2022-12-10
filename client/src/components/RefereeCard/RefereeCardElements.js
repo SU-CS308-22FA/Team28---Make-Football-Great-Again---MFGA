@@ -7,14 +7,14 @@ export const ContainerCard = styled(Card)`
   height: 6rem;
   width: 20rem;
   border-width: 3px;
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: black;
   top: 6.5rem;
   justify-content: center;
   margin: 15px 20px 15px 20px; /* Added */
   float: none; /* Added */
 
 
-  background: white;
+  background: #DD5353;
   
 `;
 
@@ -36,7 +36,7 @@ export const Rating = styled.h1`
   position: relative;
   display:table;
   top: 8%;
-  color: red;
+  color: white;
   margin: 0 auto 0 auto;
   
   text-decoration-thickness: 1px;
