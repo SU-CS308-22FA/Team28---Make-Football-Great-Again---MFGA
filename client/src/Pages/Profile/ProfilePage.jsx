@@ -41,7 +41,7 @@ export const Profile = () => {
 
   useEffect(() => {
     axios
-    .get("https://mfga.herokuapp.com/profile")
+    .get("http://localhost:4000/profile")
     .then((res) => {
       const u_teams = res.data;
       SetUteams(u_teams);
@@ -56,7 +56,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
+      const result = await axios.get("http://localhost:4000/stat/getStat");
 
       setTeamStat(result.data);
     };
@@ -82,7 +82,7 @@ export const Profile = () => {
     };
     console.log(Selectedteam);
     axios
-      .post("https://mfga.herokuapp.com/profile", Selectedteam)
+      .post("http://localhost:4000/profile", Selectedteam)
       .then((response) => {
         window.alert("User successfully selected team");
 

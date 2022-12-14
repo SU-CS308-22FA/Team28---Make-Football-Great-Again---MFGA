@@ -48,7 +48,7 @@ const handleDelete = (e)=>{
     e.preventDefault();
     localStorage.removeItem("currentUser");
     localStorage.removeItem("user");
-    axios.delete("https://mfga.herokuapp.com/edit",{data: {email:email}})
+    axios.delete("http://localhost:4000/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
@@ -108,7 +108,7 @@ const handleUpdate = (e)=>{
   if(isPasswordValid && isNameValid && isUsernameValid){
     //localStorage.removeItem("currentUser");
     //localStorage.removeItem("user");
-    axios.post("https://mfga.herokuapp.com/edit",updated)
+    axios.post("http://localhost:4000/edit",updated)
     .then((res)=>{
         if(res.status===200){
             navigate('/profileFront')

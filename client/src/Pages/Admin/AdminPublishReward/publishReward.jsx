@@ -53,7 +53,7 @@ export const PublishReward = () => {
 
     if (isAllFull) {
       axios
-        .post("https://mfga.herokuapp.com/api/publishAward", award)
+        .post("http://localhost:4000/api/publishAward", award)
         .then((response) => {
           //console.log(response.data.message)
             window.alert(response.data.message)

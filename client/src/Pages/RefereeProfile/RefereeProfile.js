@@ -26,7 +26,7 @@ export const RefereeProfile = ()=>{
 
     useEffect(() => {
         axios
-        .get("https://mfga.herokuapp.com/referees")
+        .get("http://localhost:4000/referees")
         .then(res => {
           const referees = res.data;
           SetReferees(referees);
@@ -66,7 +66,7 @@ export const RefereeProfile = ()=>{
 
       useEffect(() => {
         axios
-            .get("https://mfga.herokuapp.com/board/nextMatches")
+            .get("http://localhost:4000/board/nextMatches")
             .then( (res) => {
             
               const matches = res.data;

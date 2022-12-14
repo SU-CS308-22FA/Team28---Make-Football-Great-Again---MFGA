@@ -27,7 +27,7 @@ export const RefereeCard = (props)=>{
         
         if(navigateAwayName.length >0){
       axios
-      .post("https://mfga.herokuapp.com/board/nextMatches", needs)
+      .post("http://localhost:4000/board/nextMatches", needs)
       .then((res) => {
         if(res.status===200){
             window.alert(res.data.message)

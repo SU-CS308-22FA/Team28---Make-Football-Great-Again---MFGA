@@ -16,7 +16,7 @@ export const RatingCard = (props)=>{
         console.log(user.email)
         if(point >0){
       axios
-      .post("https://mfga.herokuapp.com/referees", needs)
+      .post("http://localhost:4000/referees", needs)
       .then((res) => {
         if(res.status===200){
             window.alert(res.data.message)

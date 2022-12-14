@@ -29,7 +29,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "https://mfga.herokuapp.com",
+  origin: "http://localhost:3000",
   credentials: true,
 }));
 
@@ -42,9 +42,30 @@ const postRoute = require("./routes/posts/postRoute")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
 const award = require("./routes/awards/awardsRoute")
 const path = require('path');
+const swaggerJSDOC = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
+
+const options = {
+  definition:{
+    openapi: '3.0.0',
+    info:{
+      title:'MFGA',
+      version:'1.0.0'
+    },
+    servers:[
+      {
+        url: 'http://localhost:4000/'
+      }
+    ],
+    
+  },
+  apis:['./routes/*.js']
+}
+const swaggerSpec = swaggerJSDOC(options)
 //Web scrapping
 // require("./web/scraping")
 require("./web-scraping/teamPlayers")
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 // require('./web-scraping/newsScraper/scrapeNews')
 //require('./web-scraping/newsScraper/scrapeTffNews')
 

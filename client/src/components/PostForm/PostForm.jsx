@@ -54,7 +54,7 @@ export const PostForm = ({ isForm }) => {
     if (isFull) {
       isForm = false;
 
-      axios.post("https://mfga.herokuapp.com/api/post", posted).then((response) => {
+      axios.post("http://localhost:4000/api/post", posted).then((response) => {
         window.alert(response.data.message);
         console.log(isForm);
         setCommunity(!isCommunity);

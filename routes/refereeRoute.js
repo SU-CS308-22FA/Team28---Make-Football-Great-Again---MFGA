@@ -146,6 +146,18 @@ router.route('/referees').post((req,res)=>{
   })
  .catch(err => res.status(400).json({message:'Error: ' + err}));
 });
+/**
+ * @swagger
+ * /:
+ *  get:
+ *   summary: This api get referees
+ *   description: This api used for getting referee information
+ *   responses:
+ *     200:
+ *       description: To test
+ * 
+ * 
+ */
 router.route('/referees/:name').get((req,res)=>{
   Referee.find()
  .then(referees => res.json(referees))

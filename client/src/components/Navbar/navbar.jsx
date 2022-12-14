@@ -16,7 +16,7 @@ export const Navbar = ( {toggle} ) => {
     e.preventDefault();
     localStorage.removeItem("currentUser");
     localStorage.removeItem("user");
-    axios.get("https://mfga.herokuapp.com/logout")
+    axios.get("http://localhost:4000/logout")
     .then(async (res)=>{
         if(res.status===200){
             await getLoggedIn();

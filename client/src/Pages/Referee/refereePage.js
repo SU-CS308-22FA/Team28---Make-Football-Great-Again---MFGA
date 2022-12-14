@@ -30,7 +30,7 @@ export const RefereePage = ()=>{
 
     useEffect(() => {
         axios
-        .get("https://mfga.herokuapp.com/referees")
+        .get("http://localhost:4000/referees")
         .then(res => {
           const referees = res.data;
           SetReferees(referees);

@@ -39,7 +39,7 @@ export const Awards = () => {
   useEffect(() => {
     if (!isOldAwards) {
       axios
-        .get("https://mfga.herokuapp.com/api/currentAward")
+        .get("http://localhost:4000/api/currentAward")
         .then((res) => {
           setAward(res.data);
         })
@@ -47,7 +47,7 @@ export const Awards = () => {
           console.log(err);
         });
       axios
-        .post("https://mfga.herokuapp.com/api/isApplied", {
+        .post("http://localhost:4000/api/isApplied", {
           email: user !== null ? user.email : "",
         })
         .then((res) => {
@@ -61,7 +61,7 @@ export const Awards = () => {
         });
 
       axios
-        .post("https://mfga.herokuapp.com/api/getPoints", {
+        .post("http://localhost:4000/api/getPoints", {
           email: user !== null ? user.email : "",
         })
         .then((res) => {
@@ -77,7 +77,7 @@ export const Awards = () => {
     if (isOldAwardsRender) {
       console.log("here");
       axios
-        .get("https://mfga.herokuapp.com/api/oldAwards")
+        .get("http://localhost:4000/api/oldAwards")
         .then((res) => {
           setOldAwards(res.data);
           console.log(res.data);
@@ -89,7 +89,7 @@ export const Awards = () => {
     }
     if(isFinished){
         axios
-        .get("https://mfga.herokuapp.com/api/currentAward")
+        .get("http://localhost:4000/api/currentAward")
         .then((res) => {
           setAward(res.data);
         })
@@ -164,13 +164,13 @@ export const Awards = () => {
       window.alert("You don't have enough points");
     } else {
       axios
-        .post("https://mfga.herokuapp.com/api/applyAward", { email: user.email })
+        .post("http://localhost:4000/api/applyAward", { email: user.email })
         .then((res) => {
           window.alert(res.data.message);
           console.log(award.pointsNeeded);
           setApplied(true);
           axios
-            .post("https://mfga.herokuapp.com/api/getPoints", {
+            .post("http://localhost:4000/api/getPoints", {
               email: user !== null ? user.email : "",
             })
             .then((res) => {
@@ -186,12 +186,12 @@ export const Awards = () => {
   const handleUnapply = (e) => {
     e.preventDefault();
     axios
-      .post("https://mfga.herokuapp.com/api/unapplyAward", { email: user.email })
+      .post("http://localhost:4000/api/unapplyAward", { email: user.email })
       .then((res) => {
         window.alert(res.data.message);
         setApplied(false);
         axios
-          .post("https://mfga.herokuapp.com/api/getPoints", {
+          .post("http://localhost:4000/api/getPoints", {
             email: user !== null ? user.email : "",
           })
           .then((res) => {
@@ -204,7 +204,7 @@ export const Awards = () => {
   };
   const handleFinish = (e) => {
     e.preventDefault();
-    axios.post("https://mfga.herokuapp.com/api/finishApplication", {id: award._id})
+    axios.post("http://localhost:4000/api/finishApplication", {id: award._id})
     .then((res) => {
         setisFinished(true)
         window.alert("Application succesfully completed!")

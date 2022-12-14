@@ -13,7 +13,7 @@ export const UserCard = (props)=>{
         }
 
         axios
-        .post("https://mfga.herokuapp.com/api/admin/" + props.id, banned)
+        .post("http://localhost:4000/api/admin/" + props.id, banned)
         .then((response) => {
             window.alert("User successfully banned from the system")
             
@@ -43,7 +43,7 @@ export const BannedCard = (props)=>{
         }
 
         axios
-        .post("https://mfga.herokuapp.com/api/admin/banned/" + props.id, activated)
+        .post("http://localhost:4000/api/admin/banned/" + props.id, activated)
         .then((response) => {
             window.alert("User successfully reactivated to the system")
             

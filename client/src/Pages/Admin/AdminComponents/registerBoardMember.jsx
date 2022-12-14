@@ -99,7 +99,7 @@ export const RegisterBoard =()=> {
     ) {
 
       axios
-        .post("https://mfga.herokuapp.com/api/admin", registered)
+        .post("http://localhost:4000/api/admin", registered)
         .then((response) => {
           if(response.data.message === "User already exists with that email"){
             window.alert("Board Member already exists with that email")
