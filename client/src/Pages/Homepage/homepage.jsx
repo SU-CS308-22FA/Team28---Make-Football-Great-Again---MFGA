@@ -19,7 +19,7 @@ const Homepage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/recentmatch/getrecent");
+      const result = await axios.get("https://mfga.herokuapp.com/recentmatch/getrecent");
 
       setRecentMatch(result.data);
     };
@@ -77,7 +77,7 @@ const Homepage = () => {
         var currentData = result[i];
         console.log(currentData)
 
-        axios.post('http://localhost:4000/recentmatch/recent', currentData)
+        axios.post('https://mfga.herokuapp.com/recentmatch/recent', currentData)
         .then((res) => {
           if(res.status === 200) {
             console.log(res.data)

@@ -17,7 +17,7 @@ const CurrentStats = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
 
       setTeamStat(result.data);
 
@@ -67,7 +67,7 @@ const CurrentStats = () => {
         console.log(currentData);
 
         axios
-          .post("http://localhost:4000/stat/statOrder", currentData)
+          .post("https://mfga.herokuapp.com/stat/statOrder", currentData)
           .then((res) => {
             if (res.status === 200) {
               console.log(res.data);

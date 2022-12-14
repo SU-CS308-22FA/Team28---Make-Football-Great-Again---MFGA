@@ -7,7 +7,7 @@ import axios from "axios";
 export const Admin = () =>{
 
     const [users,SetUsers] = useState([]);
-    axios.get('http://localhost:4000/api/admin')
+    axios.get('https://mfga.herokuapp.com/api/admin')
     .then(res =>{
         const users = res.data;
         SetUsers(users)

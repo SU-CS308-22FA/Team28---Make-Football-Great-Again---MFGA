@@ -12,7 +12,7 @@ export const TeamPage= () =>{
   const [players,SetPlayers] = useState([]);
   const {team} = useParams();
 
-  axios.get('http://localhost:4000/teams/'+team)
+  axios.get('https://mfga.herokuapp.com/teams/'+team)
   .then(res =>{
       const players = res.data;
       SetPlayers(players)
@@ -25,7 +25,7 @@ export const TeamPage= () =>{
   const [teamsName,SetName] = useState([]);
   const [teamsImg,SetImg] = useState([]);
   useEffect(() => {
-  axios.get('http://localhost:4000/profile')
+  axios.get('https://mfga.herokuapp.com/profile')
   .then(res =>{
       const teamsInfo = res.data;
       SetTeamInfo(teamsInfo);
@@ -50,7 +50,7 @@ export const TeamPage= () =>{
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
 
       setTeamStat(result.data);
     };

@@ -46,7 +46,7 @@ export const PostCard = (props) => {
     SetLikeCount(likeCount + 1);
 
     axios
-      .post("http://localhost:4000/api/like", likeData)
+      .post("https://mfga.herokuapp.com/api/like", likeData)
       .then((res) => {
         console.log(res);
       })
@@ -59,7 +59,7 @@ export const PostCard = (props) => {
 
   const HandleUnlike = () => {
     SetLikeCount(likeCount - 1);
-    axios.post("http://localhost:4000/api/unlike", likeData)
+    axios.post("https://mfga.herokuapp.com/api/unlike", likeData)
     .then((res) => {
         console.log(res);
       })

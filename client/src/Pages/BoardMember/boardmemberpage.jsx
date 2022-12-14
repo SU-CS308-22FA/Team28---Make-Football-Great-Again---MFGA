@@ -18,7 +18,7 @@ const BoardMember = () => {
 
   useEffect(() => {
     axios
-        .get("http://localhost:4000/board/nextMatches")
+        .get("https://mfga.herokuapp.com/board/nextMatches")
         .then( (res) => {
           const matches = res.data;
           SetMatches(matches);
