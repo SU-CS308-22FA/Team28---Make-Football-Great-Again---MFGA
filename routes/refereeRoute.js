@@ -96,6 +96,11 @@ getReferees(refereeUrl);
 // }
 
 // getRefereeImages(refereeImgUrl);
+/*
+// @route GET/referees
+// @desc  Get all the referee information
+// @response Send a json object that has all the referees to map them in referee page
+*/
 
 router.route('/referees').get((req,res)=>{
   Referee.find()

@@ -325,6 +325,12 @@ async function getKadro(turl){
 getKadro(turl);
 
 
+/*
+// @route GET/teams/:team
+// @desc  Get all the player information in the selected team 
+// @response Send a json object that has all the players to map them in selected team's page
+*/
+
 router.route('/teams/:team').get((req,res)=>{
   Player.find()
  .then(players => res.json(players))
