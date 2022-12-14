@@ -19,6 +19,7 @@ require("./models/recentMatch")
 require("./models/nextMatch")
 require("./models/referee");
 require("./models/rating");
+require("./models/award");
 
 
 //cookie handling
@@ -36,6 +37,7 @@ const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
+const award = require("./routes/awards/awardsRoute")
 const path = require('path');
 //Web scrapping
 // require("./web/scraping")
@@ -46,6 +48,7 @@ require("./web-scraping/teamPlayers")
 app.use(express.static('client/build'));
 
 // routes
+app.use('/api', award);
 app.use(refereeRoutes);
 app.use(nextMatch);
 app.use('/recentmatch', recentMatch)

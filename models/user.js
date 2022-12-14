@@ -26,6 +26,14 @@ const userSchema = mongoose.Schema({
     },
     team:{
         type:String,
+    },
+    points: {
+        type:Number,
+        default: 0
+    }, 
+    awards:{
+        type:[],
+        default:[]
     }
     
 })

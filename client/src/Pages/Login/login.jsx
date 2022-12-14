@@ -114,7 +114,7 @@ export const Login = () => {
             console.log(response.data)
             console.log("Logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team, points: response.data.user.points}))
             localStorage.setItem("user", response.data.user);
             navigate("/profileFront", {state: response.data});
           }

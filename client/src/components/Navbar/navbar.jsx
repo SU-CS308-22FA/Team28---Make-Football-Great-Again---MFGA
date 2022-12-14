@@ -54,6 +54,11 @@ export const Navbar = ( {toggle} ) => {
               <NavLinks to = '/referee'>Referees</NavLinks>
             </NavItem>
 
+
+            <NavItem>
+                <NavLinks to = '/awards'>Awards</NavLinks>
+              </NavItem>
+              
             <Display>
               <NavItem>
                 <NavLinks to = '/signup'>Register</NavLinks>
@@ -66,7 +71,7 @@ export const Navbar = ( {toggle} ) => {
             <DisplayAuth>
               <AdminDisp>
                 <NavItem>
-                    <NavLinks to = '/publishReward'>Publish Reward</NavLinks>
+                    <NavLinks to = '/publishReward'>Publish Award</NavLinks>
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>

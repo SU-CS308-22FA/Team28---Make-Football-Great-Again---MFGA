@@ -300,7 +300,7 @@ async function getKadro(turl){
            
 
         });
-        console.log(all_teams);
+        //console.log(all_teams);
         all_teams.forEach(element => {
           Team.findOne()
             .then((foundUser)=> 
@@ -352,6 +352,17 @@ router.route('/profile').get((req,res)=>{
  .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/api/getPoints').post((req, res) =>{
+  const {email} = req.body
+  User.findOne({email: email})
+  .then((user)=>{
+    res.json((user != null  ? user.points : 0))
+  })
+  .catch((err)=>{
+    console.log(err);
+});
+
+})
 
 
 
