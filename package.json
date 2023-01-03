@@ -28,9 +28,9 @@
     "nightmare": "^3.0.2",
     "object-to-csv": "^1.0.5",
     "request": "^2.88.2",
-    "twit": "^2.2.11",
     "swagger-autogen": "^2.22.0",
     "swagger-ui-express": "^4.6.0",
+    "twit": "^2.2.11",
     "twitter": "^1.7.1"
   },
   "devDependencies": {

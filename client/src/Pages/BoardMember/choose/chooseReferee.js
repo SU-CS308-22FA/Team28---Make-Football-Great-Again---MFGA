@@ -223,7 +223,7 @@ export const ChooseReferee = (props) => {
       <ImportanceTitle>Match Importance: { MatchImportanceStr}</ImportanceTitle>
       <ImportanceNumberTitle>Importance Number: {MatchImportance} </ImportanceNumberTitle>
       <br/>
-       <Footer></Footer>
+       
       
     
     </ContainerDiv>
