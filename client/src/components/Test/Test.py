@@ -11,13 +11,32 @@ class PythonOrgSearch(unittest.TestCase):
     def test_search_in_python_org(self):
         driver = self.driver
         time.sleep(2)
-        driver.get("http://localhost:3000")
-        self.assertIn("Python", driver.title)
-        elem = driver.find_element(By.XPATH, "/html/body/div/div/div/div[4]/div/div/div[1]/a[5]")
-        elem.send_keys("warcraft")
-        time.sleep(2)
-        elem.send_keys(Keys.RETURN)
-        self.assertNotIn("No results found.", driver.page_source)
+        driver.get("http://localhost:3000/")
+        #self.assertIn("Python", driver.title)
+        
+        
+        elem = driver.find_element(By.XPATH, "/html/body/div/nav/div/ul/li[5]/a")
+        #elem.send_keys("warcraft")
+        elem.click()
+        time.sleep(3)
+
+        first = driver.find_element(By.XPATH, "/html/body/div/div/div[24]/div[1]").text
+        
+
+        filt = driver.find_element(By.XPATH, "/html/body/div/div/div[24]/div[1]" )
+        filt.click()
+        time.sleep(3)
+
+        rate = driver.find_element(By.XPATH, "/html/body/div/div/div[24]/div[2]/ul/li[6]")
+        rtext =driver.find_element(By.XPATH, "/html/body/div/div/div[24]/div[2]/ul/li[6]").text
+        rate.click()
+        time.sleep(3)
+
+        
+
+        #elem.send_keys(Keys.RETURN)
+        #self.assertNotIn("No results found.", driver.page_source)
+        self.assertTrue(first != rtext)
 
 
     def tearDown(self):
