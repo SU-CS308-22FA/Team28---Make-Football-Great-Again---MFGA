@@ -52,7 +52,7 @@ export const TeamPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/profile")
+      .get("https://mfga.herokuapp.com/profile")
       .then((res) => {
         const teamsInfo = res.data;
         SetTeamInfo(teamsInfo);
@@ -73,7 +73,7 @@ export const TeamPage = () => {
       });
 
     axios
-      .get("http://localhost:4000/teams/" + team)
+      .get("https://mfga.herokuapp.com/teams/" + team)
       .then((res) => {
         const players = res.data;
         SetPlayers(players);
@@ -87,7 +87,7 @@ export const TeamPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
 
       setTeamStat(result.data);
     };
@@ -100,7 +100,7 @@ export const TeamPage = () => {
     if(teamURL != "" && isContentDownloaded) {
      
      const fetchData = async () => {
-       const result = await axios.post("http://localhost:4000/api/teamPosts", {screen_name: teamURL});
+       const result = await axios.post("https://mfga.herokuapp.com/api/teamPosts", {screen_name: teamURL});
  
        setTweetArray(result.data);
      };

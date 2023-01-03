@@ -28,7 +28,7 @@ export const BugReport = ()=>{
             }
 
           axios
-          .post("http://localhost:4000/bugReport", needs)
+          .post("https://mfga.herokuapp.com/bugReport", needs)
           .then((res) => {
             if(res.status===200){
                 window.alert(res.data.message)

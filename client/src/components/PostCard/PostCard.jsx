@@ -50,7 +50,7 @@ export const PostCard = (props) => {
     SetLikeCount(likeCount + 1);
 
     axios
-      .post("http://localhost:4000/api/like", likeData)
+      .post("https://mfga.herokuapp.com/api/like", likeData)
       .then((res) => {
         console.log(res);
       })
@@ -63,7 +63,7 @@ export const PostCard = (props) => {
 
   const HandleUnlike = () => {
     SetLikeCount(likeCount - 1);
-    axios.post("http://localhost:4000/api/unlike", likeData)
+    axios.post("https://mfga.herokuapp.com/api/unlike", likeData)
     .then((res) => {
         console.log(res);
       })
@@ -115,7 +115,7 @@ export const ProfilePostCard = ({props, name, postId}) => {
   const HandleDelete = () => {
     setIsRender(false)
     axios
-      .post("http://localhost:4000/api/deletePost", {postId})
+      .post("https://mfga.herokuapp.com/api/deletePost", {postId})
       .then((res) => {
         console.log(res);
       })
@@ -133,7 +133,7 @@ export const ProfilePostCard = ({props, name, postId}) => {
     e.preventDefault();
     setIsEditRender(false)
     setIsRenderAgain(true)
-    axios.post("http://localhost:4000/api/updatePost", {postId, newContent})
+    axios.post("https://mfga.herokuapp.com/api/updatePost", {postId, newContent})
     .then((res) => {
       console.log(res);
     })

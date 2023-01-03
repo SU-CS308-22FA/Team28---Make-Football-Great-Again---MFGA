@@ -12,7 +12,7 @@ export const Team = ()=>{
     const [teams,SetTeams] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/profile')
+        axios.get('https://mfga.herokuapp.com/profile')
         .then(res =>{
             const teams = res.data;
             SetTeams(teams)

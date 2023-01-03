@@ -16,7 +16,7 @@ export const ChooseReferee = (props) => {
   const [teamStat, setTeamStat] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
       setTeamStat(result.data);
     };
 
@@ -25,7 +25,7 @@ export const ChooseReferee = (props) => {
 
   useEffect(() => {
     axios
-        .get("http://localhost:4000/referees")
+        .get("https://mfga.herokuapp.com/referees")
         .then( (res) => {
           const referees = res.data;
           SetReferees(referees);

@@ -13,7 +13,7 @@ export const BugControl = ()=>{
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/bugs")
+            .get("https://mfga.herokuapp.com/bugs")
             .then( (res) => {
               const bugs = res.data;
               setBugs(bugs);

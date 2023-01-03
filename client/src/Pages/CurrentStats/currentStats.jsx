@@ -31,7 +31,7 @@ const CurrentStats = () => {
   var rank2 = 1;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
 
       setTeamStat(result.data);
 
@@ -43,7 +43,7 @@ const CurrentStats = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/api/getTopScorer");
+      const result = await axios.get("https://mfga.herokuapp.com/api/getTopScorer");
 
       setTopScorerStat(result.data[0]);
       setScorersStat(result.data.slice(1));
@@ -58,7 +58,7 @@ const CurrentStats = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/api/getTopAssist");
+      const result = await axios.get("https://mfga.herokuapp.com/api/getTopAssist");
 
       setTopAssistStat(result.data[0]);
       setAssistsStat(result.data.slice(1));
@@ -118,7 +118,7 @@ const CurrentStats = () => {
         console.log(currentData);
 
         axios
-          .post("http://localhost:4000/stat/statOrder", currentData)
+          .post("https://mfga.herokuapp.com/stat/statOrder", currentData)
           .then((res) => {
             if (res.status === 200) {
               console.log(res.data);

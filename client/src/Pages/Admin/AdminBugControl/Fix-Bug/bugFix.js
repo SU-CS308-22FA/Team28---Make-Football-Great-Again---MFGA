@@ -22,7 +22,7 @@ export const BugFix = ()=>{
             //Get bugs from database and check if isDone true;
 
           axios
-          .post("http://localhost:4000/bugFix/:id", needs)
+          .post("https://mfga.herokuapp.com/bugFix/:id", needs)
           .then((res) => {
             if(res.status===200){
                 window.alert(res.data.message)

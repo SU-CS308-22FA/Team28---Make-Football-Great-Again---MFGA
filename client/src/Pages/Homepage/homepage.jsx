@@ -34,7 +34,7 @@ const Homepage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(
-        "http://localhost:4000/recentmatch/getrecent"
+        "https://mfga.herokuapp.com/recentmatch/getrecent"
       );
 
       setRecentMatch(result.data);
@@ -45,7 +45,7 @@ const Homepage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/api/news");
+      const result = await axios.get("https://mfga.herokuapp.com/api/news");
 
       setNews(result.data);
     };
@@ -118,7 +118,7 @@ const Homepage = () => {
         console.log(currentData);
 
         axios
-          .post("http://localhost:4000/recentmatch/recent", currentData)
+          .post("https://mfga.herokuapp.com/recentmatch/recent", currentData)
           .then((res) => {
             if (res.status === 200) {
               console.log(res.data);

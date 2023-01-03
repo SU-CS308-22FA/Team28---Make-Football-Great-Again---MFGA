@@ -49,7 +49,7 @@ export const Community = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/getAllPost")
+      .get("https://mfga.herokuapp.com/api/getAllPost")
       .then((res) => {
         //console.log(res.data)
         var posts = res.data;
@@ -65,7 +65,7 @@ export const Community = () => {
       // console.log(checkValue)
 
       axios
-        .post("http://localhost:4000/api/filter", {
+        .post("https://mfga.herokuapp.com/api/filter", {
           likeCount: checkValue,
           roleArray: (cSelected.length > 0 ? cSelected: [0,1,2,3]),
         })

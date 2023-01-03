@@ -106,7 +106,7 @@ export const Register = () => {
     ) {
 
       axios
-        .post("http://localhost:4000/signup", registered)
+        .post("https://mfga.herokuapp.com/signup", registered)
         .then((response) => {
           if(response.data.message === "User already exists with that email"){
             window.alert("User already exists with that email")
