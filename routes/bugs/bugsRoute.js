@@ -56,7 +56,7 @@ router.post("/bugReport", (req,res)=>{
    .then(bugs => res.json(bugs))
    .catch(err => res.status(400).json('Error: ' + err));
   });
-  router.route('/fixedBugs').get((req,res)=>{
+  router.route('/fixBug').get((req,res)=>{
     Bugs.find({isDone:true})
    .then(bugs => res.json(bugs))
    .catch(err => res.status(400).json('Error: ' + err));
