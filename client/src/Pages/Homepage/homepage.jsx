@@ -21,7 +21,9 @@ import {
   TFFButton,
   UpcomingMatch,
   UpComingMatchContainer,
-  StyledBackImage
+  StyledBackImage,
+  CustomFeedImageTFF,
+  StyledContainerTFFInfo,
 } from "./HomepageElements";
 
 const Homepage = () => {
@@ -64,9 +66,9 @@ const Homepage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
 
-  if (recentMatch.length === 0) {
-    return <Loading></Loading>;
-  }
+  // if (recentMatch.length === 0) {
+  //   return <Loading></Loading>;
+  // }
 
   if (news.length === 0) {
     return <Loading></Loading>;
@@ -79,7 +81,8 @@ const Homepage = () => {
     try {
       const response = await fetch(
         // "https://mocki.io/v1/08c6b2bd-5741-4f67-af9f-7f3e1e981ee5",
-        "https://mocki.io/v1/4af3e014-9836-4c73-87e2-ae73ddcd0b82",
+        // "https://mocki.io/v1/4af3e014-9836-4c73-87e2-ae73ddcd0b82",
+        "https://mocki.io/v1/35517c67-1619-433a-8041-3335aa592d3c",
         // 'https://api.collectapi.com/sport/results?data.league=super-lig',
         {
           method: "GET",
@@ -97,7 +100,7 @@ const Homepage = () => {
 
       var result = await response.json();
 
-      // result = result["result"] //If YOU USE COLLECT API USE THIS COMMAND
+      result = result["result"] //If YOU USE COLLECT API USE THIS COMMAND
 
       console.log("result is: ", JSON.stringify(result, null, 4));
 
@@ -147,7 +150,6 @@ const Homepage = () => {
         {isLoading && <h2>Loading...</h2>}
         <ContainerDiv>
           <InnerContainer>
-
             {/* <CustomImage
               src="https://i.pinimg.com/originals/b2/7c/2d/b27c2d3cfbc89a37042cdc5a01be60c4.png"
               alt="PageImage"
@@ -173,7 +175,20 @@ const Homepage = () => {
                 ))}
               </NewsContainer>
             ) : (
-              <h1>News Is Not Active</h1>
+              <>
+                <CustomFeedImageTFF
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Turkish_Football_Federation_crest.svg/1200px-Turkish_Football_Federation_crest.svg.png"
+                  alt="my image"
+                  // onClick={this.myfunction}
+                />
+                <StyledContainerTFFInfo>
+                  Türkiye Futbol Federasyonu (TFF), 23 Nisan 1923'te kurulan;
+                  Türkiye'de futbol faaliyetlerini yürütmek, futbolun
+                  gelişmesini ve yurt sathına yayılmasını sağlamak, bu konularda
+                  her türlü düzenlemeyi yapmak, kararlar almak ve uygulamakla
+                  yetkili kurumdur.
+                </StyledContainerTFFInfo>
+              </>
             )}
 
             <CustomSidebar>
@@ -212,10 +227,8 @@ const Homepage = () => {
             </UpComingMatchContainer>
             <Footer></Footer>
           </InnerContainer>
-          
         </ContainerDiv>
       </ProSidebarProvider>
-      
     </>
   );
 };

@@ -130,6 +130,24 @@ export const CustomImageTFF = styled.img`
   height: fit-content;
 `;
 
+export const CustomFeedImageTFF = styled.img`
+    margin-top: 0;
+    width: 25rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 22rem;
+`;
+
+export const StyledContainerTFFInfo = styled.div`
+    position: absolute;
+    left: 51rem;
+    width: 23rem;
+    top: 16rem;
+    font-size: 1.4rem;
+`;
+
 export const UpComingMatchContainer = styled.div`
   position: relative;
   background: rgba(0, 0, 0, 0.7);

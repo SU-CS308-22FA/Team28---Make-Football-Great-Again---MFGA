@@ -78,7 +78,7 @@ const CurrentStats = () => {
     }
   });
 
-  const API_URL = "https://mocki.io/v1/05d02231-7231-407c-8245-e60595d5fa5f";
+  const API_URL = "https://mocki.io/v1/35517c67-1619-433a-8041-3335aa592d3c";
 
   const [data, setData] = useState({ data: [] });
   const [isLoading, setIsLoading] = useState(false);
@@ -108,8 +108,8 @@ const CurrentStats = () => {
 
       const result = await response.json();
 
-      //console.log('result is: ', JSON.stringify(result, null, 4));
-
+      // console.log('result is: ', JSON.stringify(result, null, 4));
+      // console.log(result)
       //console.log(API_URL)
       setData(result);
 

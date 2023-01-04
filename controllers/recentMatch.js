@@ -8,6 +8,7 @@ module.exports = {
     console.log(req.body);
 
     //res.send("asasasasdasda")
+    // await Recent.remove({});
 
     await Recent.findOne({ date: date, home: home, away: away })
       .then(async (foundMatch) => {
