@@ -11,7 +11,7 @@ class PythonOrgSearch(unittest.TestCase):
 
     def test_search_in_python_org(self):
         driver = self.driver
-        driver.get("http://localhost:3000/")
+        driver.get("https://mfga.herokuapp.com/")
         time.sleep(3)
 
                 
