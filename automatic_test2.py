@@ -13,10 +13,10 @@ class PythonOrgSearch(unittest.TestCase):
 
     def test_search_in_python_org(self):
         driver = self.driver
-        driver.get("http://localhost:3000/")
+        driver.get("https://mfga.herokuapp.com/")
         time.sleep(3)
 
-        teamLink = driver.find_element(By.XPATH, "/html/body/div/nav/div/ul/li[3]/a")
+        teamLink = driver.find_element(By.XPATH, "/html/body/div/nav/div/ul/li[4]/a")
         teamLink.click()
         time.sleep(3)
 
